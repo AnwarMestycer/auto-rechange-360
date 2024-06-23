@@ -1,0 +1,8 @@
+.garage-rating {
+    margin: 10px 0;
+    height: 100%;
+  }
+  
+  .garage-rating .filled {
+    color: gold;
+  }
