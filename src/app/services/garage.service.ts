@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Appointment } from '../model/appointment.model';
-import { Review } from '../model/garage.model';
+import { Garage, Review } from '../model/garage.model';
 
 @Injectable({
   providedIn: 'root',
@@ -118,8 +118,10 @@ export class GarageService {
     return this.http.delete(`${this.BASE_URL}/garage/${id}`);
   }
 
-  updateGarageService(garage: any, id: string): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/garage/${id}`, garage);
+  updateGarageService(garage: Garage, id: string): Observable<any> {
+    let updatedGarage = JSON.stringify(garage)
+    console.log(updatedGarage + "\nid "+ id)
+    return this.http.put(`${this.BASE_URL}/garage/${id}`, updatedGarage);
   }
 
   addReviewService(review: any): any //:Observable<any>
@@ -127,7 +129,11 @@ export class GarageService {
     this.garages[0].reviews.push(review);
     //return this.http.post(`${this.BASE_URL}/add-review`, review);
   }
-
+addGarageService(garage: Garage){
+  let added = JSON.stringify(garage);
+  console.log("added", added)
+  //this.garages.push(garage)
+}
   getStatsService() {
     return this.stats;
     //return this.http.get(this.BASE_URL)

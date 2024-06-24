@@ -1,6 +1,6 @@
 export interface Garage
 {
-    _id: string,
+    _id?: string,
     name: string,
     address: string,
     city: string,
@@ -8,12 +8,12 @@ export interface Garage
     phone: string,
     email: string,
     openingHours: string,
-    servicesOffered: Array<string>
+    servicesOffered?: Array<string>
     employees: Array<Employee>,
-    vehiclesUnderRepair: Array<Repair>, 
-    __v: number,
+    vehiclesUnderRepair?: Array<Repair>, 
+    __v?: number,
     rating: number,
-    reviews: Array<Review>,
+    reviews?: Array<Review>,
   }
 
 export interface Review {

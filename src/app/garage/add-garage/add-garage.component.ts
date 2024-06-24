@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Garage } from '../../model/garage.model';
+import { GarageService } from '../../services/garage.service';
 
 @Component({
   selector: 'app-add-garage',
@@ -7,7 +8,7 @@ import { Garage } from '../../model/garage.model';
   styleUrl: './add-garage.component.css'
 })
 export class AddGarageComponent {
-
+constructor(private garageService: GarageService){}
   garage : Garage = {
     _id: "",
     name: "",
@@ -35,6 +36,8 @@ export class AddGarageComponent {
 
 
 onSubmit() {
-console.log(this.garage)}
+console.log(this.garage)
+this.garageService.addGarageService(this.garage)
+};
 
 }

@@ -29,7 +29,9 @@ export class GarageUpdateComponent implements OnInit {
         _id:  ""
       }
       ],
-    vehiclesUnderRepair: [], 
+    vehiclesUnderRepair: [
+
+    ], 
     __v: 0,
     rating: 0,
     reviews: [],
@@ -46,7 +48,8 @@ export class GarageUpdateComponent implements OnInit {
   this.garage = this.garageService.getGarageByIdService(this.id);
   console.log(this.garage)
 }
-onSubmit(event: any) {
-  //this.garage.servicesOffered =  this.garage.servicesOffered.split("")
-console.log(this.garage)}
+onSubmit() {
+console.log(this.garage)
+this.garageService.updateGarageService(this.garage, this.garage._id)
+}
 }
