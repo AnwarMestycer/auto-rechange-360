@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GarageService } from '../../services/garage.service';
 import { Appointment } from '../../model/appointment.model';
+import { Review } from '../../model/garage.model';
 
 @Component({
   selector: 'app-garage-details',
@@ -23,6 +24,14 @@ failed:boolean = false;
     timeSlot: ""
   }
   timeSlots: string[] = [];
+
+review:Review = {
+  _id: "",
+  user: "",
+comment: "",
+rating: 0
+}
+
 constructor(private activatedRoute : ActivatedRoute, private garageService : GarageService){}
 
 ngOnInit(): void {
@@ -33,7 +42,6 @@ ngOnInit(): void {
   this.timeSlots = this.garageService.getAvailableTimeSlots();
 }
 onSubmit() {
-  console.log(this.appointment);
   this.garageService.bookAppointmentService(this.appointment).subscribe(
     response => {
       console.log('Appointment posted successfully', response);
@@ -44,5 +52,14 @@ onSubmit() {
       
     }
   )
+}
+
+addReview(){
+  this.garageService.addReviewService(this.review);
+  /*.subscribe(
+    response => {
+      console.log('Review posted successfully', response);
+    }
+  )*/
 }
 }

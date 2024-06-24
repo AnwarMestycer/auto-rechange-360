@@ -29,7 +29,14 @@ export class GarageComponent {
       });
       */
     }
-    deleteProduct(arg0: any) {
-    throw new Error('Method not implemented.');
+    deleteGarage(id:string) {
+    this.garageService.deleteGarageService(id).subscribe(
+      response => {
+        console.log('Appointment deleted successfully', response);
+      },
+      error => {
+        console.error('There was an error!', error);
+      }
+    )
     }
 }

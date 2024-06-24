@@ -41,7 +41,23 @@
                             [class.filled]="star <= review.rating">&#9733;</span>
                         
                     </div>
-                </div>
+                    </div>
+                    <div class="add-review">
+                        <h4>Ajouter un commentaire</h4>
+                        <label for="name">Name</label>
+                        <input id="name" name="name" [(ngModel)]="review.user"/>
+                        <label for="comment">Comment</label>
+                        <input id="comment" name="comment" [(ngModel)]="review.comment"/>
+                        <label for="">Rating</label>
+                        <div  class="add-rating">
+
+                            <div *ngFor="let rate of stars" class="user-rating">
+                                <input type="radio" id="rating"[value]="rate" name="rating" [(ngModel)]="review.rating"/>
+                                <label>{{rate}}</label>
+                            </div>
+                        </div>
+                            <button (click)="addReview()">Ajouter</button>
+                    </div>
             </div>
         </div>
     </div>

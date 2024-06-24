@@ -140,6 +140,34 @@ button[disabled] {
   background-color: #ccc;
 }
 
-.failed{
+/*.failed{
   border:1px solid red;
+}*/
+.add-review{
+  border: 1.5px solid rgb(213, 234, 221);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.add-review input{
+  border-radius: 4px;
+  border: 1.5px solid rgb(213, 234, 221);
+  padding: 1rem;
+  width: 15rem;  
+  height: 2.5rem;
+}
+.add-rating{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+}
+.user-rating{
+   background-color: rgb(216, 225, 225);
+    border-radius: 10px;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
